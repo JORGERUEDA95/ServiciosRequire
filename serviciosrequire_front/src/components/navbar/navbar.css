@@ -4,9 +4,9 @@
     display: flex;
     justify-items: center;
     justify-content: center;
+
     
   
-    
  
   
 }
@@ -17,4 +17,9 @@
     justify-content: center;
     margin-top: 5px;
   
+}
+
+#navbar .Navbar.Brand {
+    color: black;
+    
 }

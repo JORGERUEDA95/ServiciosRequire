@@ -13,9 +13,16 @@ export default class Menu extends React.Component {
 
   render() {
     return (
-      <Navbar id="navbar" bg="" variant="dark">
+      <Navbar id="navbar" bg="white" variant="light" collapseOnSelect expand="lg">
         <Container>
-          <Navbar.Brand href="index">
+          <Navbar.Brand href="index"  >
+          <img
+              alt=""
+              src="https://cdn.icon-icons.com/icons2/62/PNG/128/bluedrawers_azul_12593.png"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{' '}
             Servicios Require<span id="usuario-sub-bram"></span>
           </Navbar.Brand>
 
@@ -26,8 +33,8 @@ export default class Menu extends React.Component {
               <Nav.Link href="#link">Link</Nav.Link>*/}
             </Nav>
             <Nav>
-              <Nav.Link href="index">INICIO</Nav.Link>
-              <Nav.Link href="#deets">SERVICIOS</Nav.Link>
+              <Nav.Link href="index" color="primary" >INICIO</Nav.Link>
+              <Nav.Link href="#nuestroservicios">SERVICIOS</Nav.Link>
               <Nav.Link href="login">INICIAR SESION</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
                 REGISTRO

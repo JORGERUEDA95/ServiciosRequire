@@ -1,6 +1,6 @@
 import React from "react"; //libreria de React
 import axios from "axios";
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, Button, Row, Col, Card } from "react-bootstrap";
 import app from "../../app.json";
 import "./login.css";
 import { isNull } from "util";
@@ -46,56 +46,60 @@ export default class login extends React.Component {
   }
   render() {
     return (
-      <Container id="login-container">
+      <Container id="login">
         <Loading show={this.state.loading} />
-
-        <Row>
+        <Row xs={1} md={2} className="g-4">
           <Col>
-            <Row>
-              <h2>Iniciar sesion</h2>
-            </Row>
-            <Row>
-              <Col
-                sm="12"
-                xs="12"
-                md={{ span: 4, offset: 4 }}
-                lg={{ span: 4, offset: 4 }}
-                xl={{ span: 4, offset: 4 }}
+            <Card className="shadow-lg">
+              <Card.Header
+                className="p-3"
+                style={{ backgroundColor: "#03045e" }}
               >
+                <h4 style={{ color: "#ffffff" }}>Inicio de sesion</h4>
+              </Card.Header>
+              <Card.Body style={{ backgroundColor: "#f7f5f0" }}>
                 <Form>
-                  <Form.Group>
+                  <Form.Group className="mb-3">
                     <Form.Label>Usuario</Form.Label>
                     <Form.Control
                       onChange={(e) =>
                         this.setState({ usuario: e.target.value })
                       }
                     />
-                    {/* {this.state.usuario} */}
                   </Form.Group>
-
-                  <Form.Group>
+                  <Form.Group className="mb-3">
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control
                       type="password"
                       onChange={(e) => this.setState({ pass: e.target.value })}
                     />
                   </Form.Group>
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      this.iniciarSesion();
-                    }}
-                  >
-                    Iniciar sesion
-                  </Button>
+                  <Form.Group className="mb-3"></Form.Group>
+                  <Form.Group className="mb-3">
+                    <Button
+                      variant="primary"
+                      onClick={() => {
+                        this.iniciarSesion();
+                      }}
+                    >
+                      Iniciar sesion
+                    </Button>
+                    <Card.Text>
+                      <a href="/">No tengo una cuenta</a>
+                    </Card.Text>
+                  </Form.Group>
                 </Form>
-              </Col>
-            </Row>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card.Img
+              style={{ borderRadius: "10%", width: "100%" }}
+              variant="top"
+              src="https://images.unsplash.com/photo-1530546171585-cc042ea5d7ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=936&q=80"
+            />
           </Col>
         </Row>
-
-        
-        
       </Container>
     );
   }
