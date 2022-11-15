@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var database = require('./config/database');
 var auth = require('./auth/main_auth');
+var cors = require('cors');
 
 
 var serviciosRouter = require("./routes/servicios.router");
@@ -19,13 +20,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cors());
+
 //Mongo connection
 database.mongoConnect();
+
 
 app.use('/usuarios', usuariosRouter);
 app.use(auth);
 app.use('/servicios', serviciosRouter);
-app.use('/usuarios', usuariosRouter);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
